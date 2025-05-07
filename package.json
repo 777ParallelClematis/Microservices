@@ -1,12 +1,19 @@
 {
   "name": "microservices",
   "version": "1.0.0",
-  "description": "",
+  "description": "Microservices architecture with user, product, and API gateway services",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run start:all",
+    "start:all": "concurrently \"npm run start --prefix user-services\" \"npm run start --prefix product-service\" \"npm run start --prefix api-gateway\""
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
